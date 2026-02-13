@@ -25,6 +25,15 @@ export class MemoryModule {
 	}
 
 	/**
+	 * Delete a memory variable
+	 * @param variable - The variable name
+	 * @param scope - The scope (SHORT/LONG)
+	 */
+	delete(variable: string, scope: 'SHORT' | 'LONG' = 'SHORT') {
+		this.client.send('memory_delete', { variable, scope });
+	}
+
+	/**
 	 * Listen for memory updates
 	 * @param cb - Callback receiving update data
 	 */

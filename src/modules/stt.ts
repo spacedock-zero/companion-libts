@@ -15,6 +15,10 @@ export class STTModule {
 		this.client.send('stt_stop', null);
 	}
 
+	clear() {
+		this.client.send('stt_clear', null);
+	}
+
 	onResult(cb: Function) {
 		this.client.on('stt_result', cb);
 	}
