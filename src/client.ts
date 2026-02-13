@@ -5,6 +5,7 @@ import { MemoryModule } from "./modules/memory";
 import { InputModule } from "./modules/input";
 import { MediaModule } from "./modules/media";
 import { SoundboardModule } from "./modules/soundboard";
+import { TwitchModule } from "./modules/twitch";
 
 /**
  * Companion Library Client
@@ -21,6 +22,7 @@ export class CompanionClient implements ICompanionClient {
 	public readonly Input: InputModule;
 	public readonly Media: MediaModule;
 	public readonly Soundboard: SoundboardModule;
+	public readonly Twitch: TwitchModule;
 
 	public readonly Core = {
 		connect: this.connect.bind(this),
@@ -38,6 +40,7 @@ export class CompanionClient implements ICompanionClient {
 		this.Input = new InputModule(this);
 		this.Media = new MediaModule(this);
 		this.Soundboard = new SoundboardModule(this);
+		this.Twitch = new TwitchModule(this);
 
 		this.modules.set('TTS', this.TTS);
 		this.modules.set('STT', this.STT);
@@ -45,6 +48,7 @@ export class CompanionClient implements ICompanionClient {
 		this.modules.set('Input', this.Input);
 		this.modules.set('Media', this.Media);
 		this.modules.set('Soundboard', this.Soundboard);
+		this.modules.set('Twitch', this.Twitch);
 
 		// Proxy allows direct module access on the instance for legacy compatibility
 		return new Proxy(this, {

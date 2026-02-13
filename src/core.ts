@@ -1,9 +1,12 @@
 
-export type CompanionPacket = {
-	version: number;
-	type: string;
-	body: any;
-}
+import { TwitchModerationAction, TwitchChannelAction, TwitchInteractionAction } from "./modules/twitch";
+
+export type CompanionPacket =
+	| { version: 1, type: 'twitch_moderation', body: TwitchModerationAction }
+	| { version: 1, type: 'twitch_channel', body: TwitchChannelAction }
+	| { version: 1, type: 'twitch_interaction', body: TwitchInteractionAction }
+	| { version: number, type: string, body: any };
+
 
 export interface ICompanionClient {
 	ws: WebSocket | null;
