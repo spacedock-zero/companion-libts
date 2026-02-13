@@ -87,7 +87,7 @@ export class CompanionClient implements ICompanionClient {
 				const packet = JSON.parse(event.data);
 
 				if (packet.type) {
-					this._trigger(packet.type, packet.body || packet);
+					this._trigger(packet.type, 'body' in packet ? packet.body : packet);
 				}
 				this._trigger('data', packet);
 			} catch (e) {
