@@ -1,0 +1,17 @@
+{
+	"name": "companion-libts",
+	"module": "index.ts",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "vite build"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^5.0.0",
+		"vite": "^7.3.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}
